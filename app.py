@@ -151,15 +151,17 @@ def bbs_upvote(bbsitem_id):
     # url_for:传入视图函数，返回该视图函数对应的路由地址
     return redirect(url_for("bbs"))
 # 点踩
-@app.route("/bbs/downvote/<int:bbsitem_id>")
-def bbs_downvote(bbsitem_id):
+@app.route("/bbs/downvote",methods=["POST"])
+def bbs_downvote():
+    if request.method == "POST":
+        bbsitem_id = request.form.get("id")
+        bbsitem = BBSitem.query.get(bbsitem_id)
+        if bbsitem:  # 有该ID
+            bbsitem.downvote += 1
+            bbs_db.session.commit()
+        else:
+            pass
     # 查询数据库，是否有该ID
-    bbsitem = BBSitem.query.get(bbsitem_id)
-    if bbsitem:  # 有该ID
-        bbsitem.downvote+=1
-        bbs_db.session.commit()
-    else:
-        pass
     # redirect:重定向，需要传入一个网址或路由地址
     # url_for:传入视图函数，返回该视图函数对应的路由地址
     return redirect(url_for("bbs"))

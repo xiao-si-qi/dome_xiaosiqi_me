@@ -23,7 +23,7 @@
                     <p>{{ item.message }}</p>
                     <div class="tagbox">
                         {{ item.nowtime }}
-                        <a href="{{ url_for("bbs_downvote",bbsitem_id=item.id) }}">{{ item.downvote}}<img src="{{ url_for('static', filename='img/c.png') }}"></a>
+                        <a href="javascript:post('{{ url_for("bbs_downvote") }}',{id:{{ item.id }}})">{{ item.downvote}}<img src="{{ url_for('static', filename='img/c.png') }}"></a>1
                         <a href="{{ url_for("bbs_upvote",bbsitem_id=item.id) }}">{{ item.upvote}}<img src="{{ url_for('static', filename='img/z.png') }}"></a>
                     </div>
 
