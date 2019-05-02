@@ -166,8 +166,10 @@ def bbs_downvote(bbsitem_id):
 # 删除留言
 @app.route("/bbs/delitem/<int:bbsitem_id>")
 def bbs_delitem(bbsitem_id):
+    print(bbsitem_id)
     # 查询数据库，是否有该ID
     bbsitem = BBSitem.query.get(bbsitem_id)
+    print(bbsitem.message)
     if bbsitem:  # 有该ID,就删除
         bbs_db.session.delete(bbsitem)
         bbs_db.session.commit()

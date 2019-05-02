@@ -27,9 +27,9 @@
                         <a href="{{ url_for("bbs_upvote",bbsitem_id=item.id) }}">{{ item.upvote}}<img src="{{ url_for('static', filename='img/z.png') }}"></a>
                     </div>
 
-                        <a onclick="del()"><img class="delimg" src="{{ url_for('static', filename='img/del.png') }}"></a>
+                        <a onclick="del({{item.id}})"><img class="delimg" src="{{ url_for('static', filename='img/del.png') }}"></a>
                     <!-- 删除确认框 -->
-	         <div id="delete" class="delete" >
+	         <div id="delete{{item.id}}" class="delete" >
 		    <div class="delete_background">
 			<div class="delbox" >
 				<!-- 框内内容 -->
@@ -38,7 +38,7 @@
 			</div>
 			<div style="height: 39px;">
 				<div class="qrbtn" onclick="javascript:window.location.href='{{ url_for("bbs_delitem",bbsitem_id=item.id) }}' ">确认</div>
-				<div class="qxbtn" onclick="delesc()">取消</div>
+				<div class="qxbtn" onclick="delesc({{item.id}})">取消</div>
 			</div>
 		</div>
 	</div>
@@ -48,7 +48,6 @@
         </div>
         <hr>
     {% endfor %}
-
     <div class="category-item">
         <form method="post">
             <input type="text" name="theme" placeholder="留言主题" class="form_text">

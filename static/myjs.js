@@ -21,12 +21,12 @@ window.onload = function()
         document.body.scrollTop=parseInt(arr[1]);
     }
 }
-function del(){
+function del(id){
 			/* 显示 */
-			document.getElementById("delete").style.display="block";
+			document.getElementById("delete"+id).style.display="block";
  		}
- 		function delesc(){
+function delesc(id){
  			/* 隐藏 */
- 			document.getElementById("delete").style.display="none";
+ 			document.getElementById("delete"+id).style.display="none";
  		}
 
