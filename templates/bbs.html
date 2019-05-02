@@ -23,8 +23,8 @@
                     <p>{{ item.message }}</p>
                     <div class="tagbox">
                         {{ item.nowtime }}
-                        <a href="javascript:post('{{ url_for("bbs_downvote") }}',{id:{{ item.id }}})">{{ item.downvote}}<img src="{{ url_for('static', filename='img/c.png') }}"></a>1
-                        <a href="{{ url_for("bbs_upvote",bbsitem_id=item.id) }}">{{ item.upvote}}<img src="{{ url_for('static', filename='img/z.png') }}"></a>
+                        <a href="javascript:post('{{ url_for('bbs_downvote') }}',{id:{{item.id}}})">{{ item.downvote}}<img src="{{ url_for('static', filename='img/c.png') }}"></a>
+                        <a href="javascript:post('{{ url_for('bbs_upvote') }}',{id:{{item.id}}})">{{ item.upvote}}<img src="{{ url_for('static', filename='img/z.png') }}"></a>
                     </div>
 
                         <a onclick="del({{item.id}})"><img class="delimg" src="{{ url_for('static', filename='img/del.png') }}"></a>
@@ -37,7 +37,7 @@
 				<div class="delmessage">一旦删除将不可恢复。</div>
 			</div>
 			<div style="height: 39px;">
-				<div class="qrbtn" onclick="javascript:window.location.href='{{ url_for("bbs_delitem",bbsitem_id=item.id) }}' ">确认</div>
+				<div class="qrbtn" onclick="javascript:post('{{ url_for('bbs_delitem') }}',{id:{{item.id}}}) ">确认</div>
 				<div class="qxbtn" onclick="delesc({{item.id}})">取消</div>
 			</div>
 		</div>

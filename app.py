@@ -138,15 +138,17 @@ def bbs():
     return render_template("bbs.html",bbs_items=bbs_items)
 
 # 点赞
-@app.route("/bbs/upvote/<int:bbsitem_id>")
-def bbs_upvote(bbsitem_id):
-    # 查询数据库，是否有该ID
-    bbsitem = BBSitem.query.get(bbsitem_id)
-    if bbsitem:  # 有该ID
-        bbsitem.upvote+=1
-        bbs_db.session.commit()
-    else:
-        pass
+@app.route("/bbs/upvote",methods=["POST"])
+def bbs_upvote():
+    if request.method == "POST":
+        bbsitem_id = request.form.get("id")
+        # 查询数据库，是否有该ID
+        bbsitem = BBSitem.query.get(bbsitem_id)
+        if bbsitem:  # 有该ID
+            bbsitem.upvote+=1
+            bbs_db.session.commit()
+        else:
+            pass
     # redirect:重定向，需要传入一个网址或路由地址
     # url_for:传入视图函数，返回该视图函数对应的路由地址
     return redirect(url_for("bbs"))
@@ -161,22 +163,19 @@ def bbs_downvote():
             bbs_db.session.commit()
         else:
             pass
-    # 查询数据库，是否有该ID
-    # redirect:重定向，需要传入一个网址或路由地址
-    # url_for:传入视图函数，返回该视图函数对应的路由地址
     return redirect(url_for("bbs"))
 # 删除留言
-@app.route("/bbs/delitem/<int:bbsitem_id>")
-def bbs_delitem(bbsitem_id):
-    print(bbsitem_id)
-    # 查询数据库，是否有该ID
-    bbsitem = BBSitem.query.get(bbsitem_id)
-    print(bbsitem.message)
-    if bbsitem:  # 有该ID,就删除
-        bbs_db.session.delete(bbsitem)
-        bbs_db.session.commit()
-    else:
-        pass
+@app.route("/bbs/delitem/",methods=["POST"])
+def bbs_delitem():
+    if request.method == "POST":
+        bbsitem_id = request.form.get("id")
+        # 查询数据库，是否有该ID
+        bbsitem = BBSitem.query.get(bbsitem_id)
+        if bbsitem:  # 有该ID,就删除
+            bbs_db.session.delete(bbsitem)
+            bbs_db.session.commit()
+        else:
+            pass
     # redirect:重定向，需要传入一个网址或路由地址
     # url_for:传入视图函数，返回该视图函数对应的路由地址
     return redirect(url_for("bbs"))
