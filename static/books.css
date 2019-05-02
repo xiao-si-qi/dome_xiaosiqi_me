@@ -1,0 +1,15 @@
+
+a:link {color: #ff2100}
+a:visited {color: #ff2100}
+a:hover {color: #ff2100} 
+a:active {color: #ff2100}
+
+.divForm{
+   width: 100%;
+    height: 50%;
+    text-align: center;/*(让div中的内容居中)*/
+}
+.divBody{
+    margin:0 auto;
+    width:500px
+}

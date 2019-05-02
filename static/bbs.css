@@ -1,0 +1,196 @@
+
+body, html {
+    font: 14px/1.5 "PingFang SC", "微软雅黑", "Microsoft YaHei", Helvetica, "Helvetica Neue", Tahoma, Arial, sans-serif;
+    color: #265879;
+}
+
+.ds-post-main {
+    position: relative;
+    width: 500px;
+}
+
+.ds-avatar {
+    position: absolute;
+    top: 20px;
+    width: 31px;
+    height: 31px;
+    padding: 5px;
+    background: #333;
+    border-radius: 50%;
+}
+
+
+.category-item {
+    margin: 0 auto;
+    position: relative;
+    width: 600px;
+    overflow: visible;
+}
+
+.category-item .item-box {
+    width: 600px;
+
+}
+
+.category-item .author {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    width: 75px;
+}
+
+.category-item h3 a {
+    display: block;
+    font-size: 16px;
+    text-align: left;
+    color: #14191e;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.category-item p {
+    font-size: 12px;
+    line-height: 20px;
+    color: #14191e;
+    margin-top: 15px;
+    padding-right: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.category-item .tagbox a {
+    font-size: 12px;
+    line-height: 20px;
+    display: inline-block;
+    padding: 0 10px;
+    color: #14191e;
+    text-decoration: none;
+    background-color: #edf1f2;
+}
+
+.category-item .tagbox img {
+    width: 25px;
+    height: 25px;
+}
+
+.delimg {
+    width: 25px;
+    height: 25px;
+}
+
+.category-item .tagbox {
+    margin-top: 30px;
+    margin-left: 300px
+}
+
+.category-list {
+    min-height: 800px;
+}
+
+.category-item .author {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    width: 75px;
+}
+
+hr {
+    width: 600px;
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+    margin-bottom: 1.5em;
+}
+
+textarea {
+    padding: 5px 5px;
+    display: block;
+    font-family: "microsoft jhenghei", "Arial", Sans-Serif;
+    float: none;
+    width: 100%;
+    height: 180px;
+    color: #535a63;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+.form_text {
+    width: 100%;
+    margin: 0;
+    padding: 15px 5px;
+    text-transform: none;
+    color: #4779b9;
+    background: none;
+    border-right: 0;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    text-shadow: none;
+}
+
+.btn {
+    width: 50%;
+    padding: 15px 5px;
+    color: #4779b9;
+    background: none;
+    border: 1px solid #ccc;
+}
+
+.delete {
+    z-index: 100;
+    border: 1px solid;
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    text-align: center;
+    display: none;
+}
+
+.delete_background {
+    background: white;
+    width: 550px;
+    height: 150px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 5px;
+}
+
+.delbox {
+    height: 110px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.delmessage_title {
+    font-size: 0.9rem;
+    padding-top: 30px;
+}
+
+.delmessage {
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.qrbtn {
+    float: left;
+    width: 48%;
+    height: 39px;
+    border-right: 1px solid #CCCCCC;
+    line-height: 39px;
+    font-size: 1rem;
+}
+
+.qxbtn {
+    float: right;
+    width: 50%;
+    height: 39px;
+    line-height: 39px;
+    font-size: 1rem
+}
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='myjs.js')}}">
+    </script>
+    <link type="text/css" rel="styleSheet" href="{{ url_for('static', filename='bbs.css') }}"/>
+</head>
+<body>
+<div class="category-list clearfix">
+    <div class="category-item">
+        <div class="item-box left">
+            <h1>留言板</h1>
+        </div>
+    </div>
+    <hr>
+    {% for item in bbs_items %}
+        <div class="category-item">
+            <div class="item-box left">
+                <div class="opus-info">
+                    <h3>{{ item.theme }}</h3>
+                    <p>{{ item.message }}</p>
+                    <div class="tagbox">
+                        {{ item.nowtime }}
+                        <a href="{{ url_for("bbs_downvote",bbsitem_id=item.id) }}">{{ item.downvote}}<img src="{{ url_for('static', filename='img/c.png') }}"></a>
+                        <a href="{{ url_for("bbs_upvote",bbsitem_id=item.id) }}">{{ item.upvote}}<img src="{{ url_for('static', filename='img/z.png') }}"></a>
+                    </div>
+
+                        <a onclick="del()"><img class="delimg" src="{{ url_for('static', filename='img/del.png') }}"></a>
+                    <!-- 删除确认框 -->
+	         <div id="delete" class="delete" >
+		    <div class="delete_background">
+			<div class="delbox" >
+				<!-- 框内内容 -->
+				<div class="delmessage_title">您确定要删除该条留言吗？</div>
+				<div class="delmessage">一旦删除将不可恢复。</div>
+			</div>
+			<div style="height: 39px;">
+				<div class="qrbtn" onclick="javascript:window.location.href='{{ url_for("bbs_delitem",bbsitem_id=item.id) }}' ">确认</div>
+				<div class="qxbtn" onclick="delesc()">取消</div>
+			</div>
+		</div>
+	</div>
+	<!-- 删除确认框end -->
+                </div>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+
+    <div class="category-item">
+        <form method="post">
+            <input type="text" name="theme" placeholder="留言主题" class="form_text">
+            <br>
+            <br>
+            <textarea name="message" placeholder="留言内容"></textarea>
+            <br>
+            <input type="submit" value="提交留言" class="btn">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

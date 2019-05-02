@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍登记系统</title>
+    <link type="text/css" rel="styleSheet"  href="{{ url_for('static', filename='books.css') }}" />
+</head>
+<body>
+<div class="divForm">
+    <h1>书籍登记系统</h1>
+<form method="post" class="elegant-aero">
+    {{ form.csrf_token() }}
+    {{ form.author.label }}:{{ form.author }}
+
+    {{ form.book.label }}:{{ form.book }}
+    <br>
+    {{ form.submit }}
+</form>
+</div>
+<div class="divBody">
+<div class="enddiv">
+ {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+<hr>
+ {# 先遍历作者，然后在作者里遍历书籍 #}
+<ul>
+    {% for author in authors %}
+        <li>作者：{{ author.name }}&nbsp;&nbsp;&nbsp;<a href="{{ url_for("del_author",author_id=author.id) }}">删除该作者</a> </li>
+        <ul>
+        {% for book in author.books %}
+            <li>《{{ book.name }}》&nbsp;&nbsp;&nbsp;<a href="{{ url_for("del_book",book_id=book.id) }}">删除</a> </li>
+        {% else %}
+            <li>无</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>
+</div>
+</div>
+</body>
+</html>

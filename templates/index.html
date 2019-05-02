@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dome 目录</title>
+</head>
+<body>
+{% for link in links %}
+    <a href="{{ url_for(link) }}" >{{ links[link]}}</a><br>
+{% endfor %}
+</body>
+</html>
